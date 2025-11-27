@@ -5,7 +5,7 @@ Database connection and session management for REST API.
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from config import config
+from .config import config
 
 # Create database URL
 DATABASE_URL = config.get_connection_string().replace("postgresql://", "postgresql+psycopg2://")

@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from sqlalchemy import text
 from typing import List, Dict, Any
-from database import get_db, get_schema_prefix
+from postgres_server.database import get_db, get_schema_prefix
 import logging
 
 # Configure logging

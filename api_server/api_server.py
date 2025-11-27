@@ -5,8 +5,8 @@ Covers General, Core Relationships, Azure, SAP BTP, and SAP ABAP endpoints.
 """
 
 from mcp.server.fastmcp import FastMCP
-from api_client import APIClient
-from api_config import api_config
+from .api_client import APIClient
+from .api_config import api_config
 
 # Create MCP server
 mcp = FastMCP("Integration Platform API Server", json_response=True)

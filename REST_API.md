@@ -74,7 +74,7 @@ curl http://localhost:3000/dev/properties
 In a new terminal:
 
 ```bash
-uv run api_server.py
+uv run -m api_server.api_server
 ```
 
 The MCP server (port 8020) will now call your REST API (port 3000).
@@ -267,7 +267,7 @@ uv run rest_api_server.py
 
 **Terminal 2 - MCP Server:**
 ```bash
-uv run api_server.py
+uv run -m api_server.api_server
 ```
 
 ### 2. Call MCP Tool

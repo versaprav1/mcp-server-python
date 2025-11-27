@@ -17,7 +17,7 @@ API_BEARER_TOKEN=your_token_here
 ### 2. Start the API Server
 
 ```bash
-uv run api_server.py
+uv run -m api_server.api_server
 ```
 
 The server runs on `http://localhost:8020`

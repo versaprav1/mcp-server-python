@@ -18,7 +18,8 @@ def start_mcp_server():
     """Start the MCP server in a subprocess."""
     print("Starting PostgreSQL MCP Server...")
     server_process = subprocess.Popen(
-        [sys.executable, "postgres_server.py"],
+        [sys.executable, "-m", "postgres_server.postgres_server"],
+        cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True,

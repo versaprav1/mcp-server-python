@@ -7,7 +7,7 @@ import json
 import psycopg2
 from psycopg2.extras import RealDictCursor
 from mcp.server.fastmcp import FastMCP
-from config import config
+from .config import config
 
 # Create MCP server
 mcp = FastMCP("PostgreSQL Database Server", json_response=True)

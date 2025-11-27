@@ -17,7 +17,8 @@ def start_mcp_server():
     """Start the API MCP server in a subprocess."""
     print("Starting Integration Platform API MCP Server...")
     server_process = subprocess.Popen(
-        [sys.executable, "api_server.py"],
+        [sys.executable, "-m", "api_server.api_server"],
+        cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True,

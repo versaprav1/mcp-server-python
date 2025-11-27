@@ -57,12 +57,12 @@ DB_PASSWORD=your_password
 ### 3. Run the Server Locally
 
 ```bash
-uv run postgres_server.py
+uv run -m postgres_server.postgres_server
 ```
 
 Or:
 ```bash
-python postgres_server.py
+python -m postgres_server.postgres_server
 ```
 
 The server will start on `http://localhost:8000`
@@ -79,7 +79,7 @@ To make your server accessible from the internet:
 **Then start the server with ngrok:**
 
 ```bash
-python start_with_ngrok.py
+python postgres_server/start_with_ngrok.py
 ```
 
 This will:
@@ -144,7 +144,7 @@ The server also provides MCP resources:
 Test the connection:
 
 ```bash
-python -c "from config import config; import psycopg2; conn = psycopg2.connect(**config.get_connection_params()); print('✓ Connected successfully!'); conn.close()"
+python -c "from postgres_server.config import config; import psycopg2; conn = psycopg2.connect(**config.get_connection_params()); print('✓ Connected successfully!'); conn.close()"
 ```
 
 ## Troubleshooting
@@ -189,12 +189,12 @@ API_BEARER_TOKEN=your_token_here
 #### 2. Run the API Server
 
 ```bash
-uv run api_server.py
+uv run -m api_server.api_server
 ```
 
 Or:
 ```bash
-python api_server.py
+python -m api_server.api_server
 ```
 
 The server will start on `http://localhost:8020`
@@ -202,7 +202,7 @@ The server will start on `http://localhost:8020`
 #### 3. Expose with Ngrok (Optional)
 
 ```bash
-python start_api_with_ngrok.py
+python api_server/start_api_with_ngrok.py
 ```
 
 ### Documentation

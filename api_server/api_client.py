@@ -5,7 +5,7 @@ Handles authentication, error handling, and response parsing.
 
 import requests
 from typing import Optional, Dict, Any
-from api_config import api_config
+from .api_config import api_config
 
 
 class APIClient:
