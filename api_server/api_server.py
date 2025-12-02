@@ -9,7 +9,7 @@ from .api_client import APIClient
 from .api_config import api_config
 
 # Create MCP server
-mcp = FastMCP("Integration Platform API Server", json_response=True)
+mcp = FastMCP("Integration Platform API Server", json_response=True, port=8020)
 
 # Initialize API client
 client = APIClient()
@@ -482,4 +482,4 @@ if __name__ == "__main__":
     print("  - Azure: 6 tools")
     print("  - SAP BTP: 4 tools")
     print("  - SAP ABAP: 3 tools")
-    mcp.run(transport="streamable-http", port=8020)
+    mcp.run(transport="streamable-http")

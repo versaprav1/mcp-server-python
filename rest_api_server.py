@@ -73,9 +73,16 @@ def get_properties(
     validate_schema(schema)
     
     query = f"""
-        SELECT id, name, value, description, created_at, updated_at
-        FROM {schema}.properties
-        ORDER BY name
+        SELECT 
+            p.id, 
+            pt.name as name, 
+            p.value, 
+            pt.kind as description, 
+            p.create_time as created_at, 
+            p.change_time as updated_at
+        FROM {schema}.properties p
+        LEFT JOIN {schema}.property_types pt ON p.type_id = pt.id
+        ORDER BY pt.name
     """
     
     return execute_query(db, query)
@@ -90,9 +97,13 @@ def get_property_types(
     validate_schema(schema)
     
     query = f"""
-        SELECT id, type_name, description, created_at
+        SELECT 
+            id, 
+            name as type_name, 
+            kind as description, 
+            create_time as created_at
         FROM {schema}.property_types
-        ORDER BY type_name
+        ORDER BY name
     """
     
     return execute_query(db, query)
@@ -107,9 +118,15 @@ def get_metadata(
     validate_schema(schema)
     
     query = f"""
-        SELECT id, key, value, category, created_at, updated_at
+        SELECT 
+            id, 
+            name as key, 
+            value, 
+            'system' as category, 
+            create_time as created_at, 
+            change_time as updated_at
         FROM {schema}.metadata
-        ORDER BY key
+        ORDER BY name
     """
     
     return execute_query(db, query)
